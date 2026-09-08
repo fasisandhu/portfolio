@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+/* ── Tokens ────────────────────────────────────────────────────────────────
+   Near-black ground, one signal-teal accent, hairline structure.
+   Teal is reserved for things that are *live*: status dots, real URLs,
+   the availability pill, focus. Nothing else gets to be coloured.        */
+
+:root {
+  --bg: #08090b;
+  --bg-raised: #0d0f13;
+  --bg-inset: #101317;
+  --line: #1a1e24;
+  --line-strong: #262c34;
+  --text: #e8eaed;
+  --muted: #8b939e;
+  --dim: #7a828d;
+  --accent: #2fe0c0;
+  --accent-ink: #04120f;
+  --accent-wash: rgba(47, 224, 192, 0.09);
+  --accent-line: rgba(47, 224, 192, 0.32);
+
+  --rail: 13.5rem;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-raised: var(--bg-raised);
+  --color-inset: var(--bg-inset);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-accent-line: var(--accent-line);
+  --color-accent-wash: var(--accent-wash);
+  --font-sans: var(--font-sans-var);
+  --font-mono: var(--font-mono-var);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans-var), ui-sans-serif, system-ui, sans-serif;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Type roles ─────────────────────────────────────────────────────────── */
+
+.mono {
+  font-family: var(--font-mono-var), ui-monospace, monospace;
+  font-feature-settings: "ss01", "zero";
+}
+
+/* Small uppercase mono label — the page's structural voice. */
+.label {
+  font-family: var(--font-mono-var), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.display {
+  font-size: clamp(2rem, 4.7vw, 3.15rem);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.display-sm {
+  font-size: clamp(1.6rem, 3.6vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+
+.shell {
+  width: 100%;
+  max-width: 66rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .shell {
+    padding-inline: 2.5rem;
+  }
+}
+
+.section {
+  padding-block: 4.5rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+}
+
+/* ── Components ─────────────────────────────────────────────────────────── */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3125rem 0.6875rem 0.3125rem 0.5625rem;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-wash);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-mono-var), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: none;
+  box-shadow: 0 0 0 0 rgba(47, 224, 192, 0.55);
+  animation: ping 2.8s cubic-bezier(0.24, 0.8, 0.36, 1) infinite;
+}
+
+/* Static twin of .dot — used where several appear at once and a pulse would nag. */
+.dot-static {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: none;
+}
+
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 224, 192, 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 0.5rem rgba(47, 224, 192, 0);
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.625rem;
+  padding-inline: 1.125rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, border-color 0.18s ease,
+    color 0.18s ease, transform 0.18s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #52e9cd;
+}
+
+.btn-ghost {
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 1.5rem;
+  padding-inline: 0.5rem;
+  border: 1px solid var(--line);
+  background: var(--bg-inset);
+  border-radius: 3px;
+  font-family: var(--font-mono-var), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+/* Browser chrome around every screenshot: the address bar shows the real
+   deployed host, and the whole frame is the link to it. */
+.frame {
+  display: block;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-inset);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.frame:hover {
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 1px rgba(47, 224, 192, 0.12), 0 18px 40px -24px rgba(0, 0, 0, 0.9);
+}
+
+.frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  height: 2.25rem;
+  padding-inline: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-raised);
+}
+
+.frame-shot {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.frame-shot img {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.frame:hover .frame-shot img {
+  transform: scale(1.018);
+}
+
+/* ── Reveal on scroll ───────────────────────────────────────────────────── */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero load sequence */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
