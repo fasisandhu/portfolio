@@ -5,7 +5,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section">
       <div className="shell">
-        <SectionHead label="Skills" note="what I reach for day to day" />
+        <SectionHead label="Skills" />
         <div data-reveal>
           <dl>
             {skills.map((group) => (

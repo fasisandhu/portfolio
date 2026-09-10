@@ -5,7 +5,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section">
       <div className="shell">
-        <SectionHead label="Experience" note="finance · healthcare · infrastructure" />
+        <SectionHead label="Experience" />
         <ol>
           {experience.map((role, i) => (
             <li
@@ -15,12 +15,9 @@ export default function Experience() {
               <div data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="grid gap-x-10 gap-y-4 md:grid-cols-[12rem_minmax(0,1fr)]">
                   <div>
-                    <div className="flex items-center gap-2">
-                      {role.current && <span className="dot-static" aria-hidden="true" />}
-                      <span className={`label ${role.current ? "text-accent" : ""}`}>
-                        {role.period}
-                      </span>
-                    </div>
+                    <span className={`label ${role.current ? "text-text" : ""}`}>
+                      {role.period}
+                    </span>
                     <p className="mono mt-2.5 text-[0.75rem] leading-snug text-dim">{role.place}</p>
                   </div>
 

@@ -2,8 +2,8 @@
 
 /* ── Tokens ────────────────────────────────────────────────────────────────
    Near-black ground, one signal-teal accent, hairline structure.
-   Teal is reserved for things that are *live*: status dots, real URLs,
-   the availability pill, focus. Nothing else gets to be coloured.        */
+   Teal earns its place three times: the availability line, the primary
+   action, and whatever the cursor is on. Nothing else is coloured.       */
 
 :root {
   --bg: #08090b;
@@ -86,7 +86,7 @@ body {
 }
 
 .display {
-  font-size: clamp(2rem, 4.7vw, 3.15rem);
+  font-size: clamp(2.05rem, 5vw, 3.4rem);
   line-height: 1.03;
   letter-spacing: -0.035em;
   font-weight: 600;
@@ -129,48 +129,16 @@ body {
 
 /* ── Components ─────────────────────────────────────────────────────────── */
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.3125rem 0.6875rem 0.3125rem 0.5625rem;
-  border: 1px solid var(--accent-line);
-  background: var(--accent-wash);
-  border-radius: 999px;
-  color: var(--accent);
-  font-family: var(--font-mono-var), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.dot {
-  width: 0.4375rem;
-  height: 0.4375rem;
-  border-radius: 999px;
-  background: var(--accent);
-  flex: none;
-  box-shadow: 0 0 0 0 rgba(47, 224, 192, 0.55);
-  animation: ping 2.8s cubic-bezier(0.24, 0.8, 0.36, 1) infinite;
-}
-
-/* Static twin of .dot — used where several appear at once and a pulse would nag. */
-.dot-static {
-  width: 0.4375rem;
-  height: 0.4375rem;
-  border-radius: 999px;
-  background: var(--accent);
-  flex: none;
-}
-
-@keyframes ping {
-  0% {
-    box-shadow: 0 0 0 0 rgba(47, 224, 192, 0.5);
-  }
-  70%,
-  100% {
-    box-shadow: 0 0 0 0.5rem rgba(47, 224, 192, 0);
-  }
+/* Letterhead rule at the top of the page: who this is, and that they're looking.
+   Stated as type on a rule rather than a badge. */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .btn {

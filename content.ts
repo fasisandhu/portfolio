@@ -13,16 +13,6 @@ export const profile = {
   contactLine: "Hiring for a remote AI/ML or backend role? Let's talk.",
 };
 
-/** Right-hand hero panel. Facts only — every row is stated elsewhere on the page. */
-export const glance: { key: string; value: string; accent?: boolean }[] = [
-  { key: "role", value: "AI/ML & Backend Engineer" },
-  { key: "now", value: "Valutico · Vienna (remote)" },
-  { key: "based", value: "Lahore, Pakistan" },
-  { key: "hours", value: "EU + US overlap" },
-  { key: "core", value: "Python · FastAPI · LLMs" },
-  { key: "demos", value: "3 live, logins included", accent: true },
-];
-
 export type Repo = { label: string; url: string };
 
 export type Project = {

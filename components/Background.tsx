@@ -6,7 +6,7 @@ export default function Background() {
   return (
     <section id="background" className="section">
       <div className="shell">
-        <SectionHead label="Background" note="degree + verified certificates" />
+        <SectionHead label="Background" />
 
         <div data-reveal>
           <div className="card flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 p-5 sm:p-6">
@@ -49,7 +49,7 @@ export default function Background() {
                       </h3>
                     </div>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="label flex items-center gap-1.5 text-accent">
+                      <span className="label flex items-center gap-1.5">
                         <CheckIcon className="h-3 w-3" />
                         Verified
                       </span>

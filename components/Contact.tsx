@@ -9,7 +9,7 @@ export default function Contact() {
     <>
       <section id="contact" className="section">
         <div className="shell">
-          <SectionHead label="Contact" note="email is the fastest route" />
+          <SectionHead label="Contact" />
           <div data-reveal>
             <p className="display-sm max-w-[22ch]">{profile.contactLine}</p>
 

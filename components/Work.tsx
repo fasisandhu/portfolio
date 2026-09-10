@@ -8,7 +8,7 @@ export default function Work() {
   return (
     <section id="work" className="section">
       <div className="shell">
-        <SectionHead label="Work" note="three systems, all deployed" />
+        <SectionHead label="Work" />
         <div className="flex flex-col gap-6 md:gap-8">
           {projects.map((project, i) => (
             <div key={project.slug} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
@@ -26,14 +26,7 @@ function ProjectCard({ project }: { project: Project }) {
     <article className="card p-5 sm:p-7">
       <div className="grid items-center gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-10">
         <div>
-          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
-            <span className="dot-static" aria-hidden="true" />
-            <span className="label text-accent">Live</span>
-            <span aria-hidden="true" className="text-line-strong">
-              ·
-            </span>
-            <span className="mono text-[0.6875rem] tracking-wide text-dim">{project.domain}</span>
-          </div>
+          <span className="label">{project.domain}</span>
 
           <h3 className="display-sm mt-4">{project.name}</h3>
           <p className="mono mt-2 text-[0.8125rem] text-muted">{project.kicker}</p>

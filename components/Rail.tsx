@@ -29,9 +29,8 @@ export default function Rail() {
       {/* Mobile: a thin sticky bar. The one action a recruiter needs stays on screen. */}
       <header className="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-md lg:hidden">
         <div className="shell flex h-14 items-center justify-between">
-          <a href="#top" className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold tracking-tight">{profile.name}</span>
-            <span className="label mt-0.5">{profile.role}</span>
+          <a href="#top" className="text-sm font-semibold tracking-tight">
+            {profile.name}
           </a>
           <a href={`mailto:${profile.email}`} className="btn btn-ghost h-9 px-3.5 text-[0.8125rem]">
             Email
