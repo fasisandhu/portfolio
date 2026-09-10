@@ -51,9 +51,10 @@ export const projects: Project[] = [
     tech: ["React", "FastAPI", "PostgreSQL", "LLaMA", "WebSockets"],
     live: "https://recruiter-ai-ecru.vercel.app",
     host: "recruiter-ai-ecru.vercel.app",
-    // Backend repo (fasisandhu/recruiter_ai_backend) stays private until its git
-    // history is scrubbed of committed credentials — a link to it would 404.
-    repos: [{ label: "Frontend", url: "https://github.com/raffayyy/Recruiter-AI" }],
+    repos: [
+      { label: "Frontend", url: "https://github.com/raffayyy/Recruiter-AI" },
+      { label: "Backend", url: "https://github.com/fasisandhu/recruiter-ai-backend" },
+    ],
     shot: "/shots/recruiter-ai.png",
     shotAlt:
       "Recruiter.AI landing page with an AI-powered recruitment hero and platform stats",
