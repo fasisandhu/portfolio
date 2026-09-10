@@ -22,15 +22,7 @@ export default async function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div
-            style={{
-              width: 12,
-              height: 12,
-              borderRadius: 999,
-              background: "#2FE0C0",
-            }}
-          />
+        <div style={{ display: "flex", alignItems: "center" }}>
           <div
             style={{
               fontSize: 22,
@@ -46,14 +38,18 @@ export default async function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
           <div
             style={{
-              fontSize: 60,
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0 14px",
+              fontSize: 56,
               fontWeight: 700,
-              letterSpacing: -2.4,
-              lineHeight: 1.08,
-              maxWidth: 930,
+              letterSpacing: -2.2,
+              lineHeight: 1.1,
+              maxWidth: 950,
             }}
           >
-            {profile.tagline}
+            <span style={{ color: "#8B939E" }}>{profile.taglineLead}</span>
+            <span>{profile.taglineClaim}</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 27 }}>
             <span style={{ fontWeight: 600 }}>{profile.name}</span>

@@ -1,8 +1,11 @@
 export const profile = {
   name: "Muhammad Faseeh",
   role: "AI/ML & Backend Engineer",
+  // Set in two tones: the setup recedes, the claim lands.
+  taglineLead: "Most LLM projects stall at the demo.",
+  taglineClaim: "I build the ones that reach production.",
   tagline:
-    "I build production LLM systems and backend services that companies run their business on.",
+    "Most LLM projects stall at the demo. I build the ones that reach production.",
   subline:
     "2+ years across finance, healthcare, and infrastructure. Currently shipping document-intelligence features at Valutico (Vienna, remote). Open to remote AI/ML, backend, and full-stack roles.",
   badge: "Open to remote roles",
@@ -12,6 +15,14 @@ export const profile = {
   location: "Lahore, Pakistan · working across EU/US timezones",
   contactLine: "Hiring for a remote AI/ML or backend role? Let's talk.",
 };
+
+/** Hero foot. Logistics a remote recruiter checks before reading further. */
+export const titleBlock = [
+  { label: "Based", value: "Lahore, Pakistan" },
+  { label: "Overlap", value: "EU + US hours" },
+  { label: "Core", value: "Python · FastAPI · LLMs" },
+  { label: "Demos", value: "3 live, logins included" },
+];
 
 export type Repo = { label: string; url: string };
 

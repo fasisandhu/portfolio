@@ -1,4 +1,4 @@
-import { profile } from "@/content";
+import { profile, titleBlock } from "@/content";
 import { ArrowRight, GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
 
 export default function Hero() {
@@ -17,8 +17,9 @@ export default function Hero() {
         <span className="label text-accent">{profile.badge}</span>
       </h1>
 
-      <p className="rise display mt-12 max-w-[54rem] md:mt-16" style={{ animationDelay: "110ms" }}>
-        {profile.tagline}
+      <p className="rise display mt-12 max-w-[46rem] md:mt-16" style={{ animationDelay: "110ms" }}>
+        <span className="text-muted">{profile.taglineLead}</span>{" "}
+        {profile.taglineClaim}
       </p>
 
       <p
@@ -53,6 +54,15 @@ export default function Hero() {
           {profile.email}
         </HeroLink>
       </ul>
+
+      <dl className="rise titleblock mt-14 md:mt-16" style={{ animationDelay: "390ms" }}>
+        {titleBlock.map((item) => (
+          <div key={item.label}>
+            <dt className="label">{item.label}</dt>
+            <dd className="mono mt-2.5 text-[0.8125rem] leading-snug text-text">{item.value}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

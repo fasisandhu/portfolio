@@ -141,6 +141,25 @@ body {
   border-bottom: 1px solid var(--line);
 }
 
+/* The flat facts, set like the title block on a technical drawing: each cell
+   hangs off its own rule. No card, no fill. */
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .titleblock {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.titleblock > div {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 0.8125rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
