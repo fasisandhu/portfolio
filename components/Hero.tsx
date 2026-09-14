@@ -6,13 +6,13 @@ export default function Hero() {
     <section id="top" className="shell scroll-mt-24 pt-10 pb-14 md:pt-16 md:pb-16">
       <h1 className="rise masthead" style={{ animationDelay: "40ms" }}>
         <span className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-          <span className="mono text-[0.9375rem] font-medium tracking-tight text-text">
+          <span className="text-[0.9375rem] font-semibold tracking-tight text-text">
             {profile.name}
           </span>
           <span aria-hidden="true" className="hidden text-line-strong sm:inline">
             /
           </span>
-          <span className="mono text-[0.9375rem] text-muted">{profile.role}</span>
+          <span className="text-[0.9375rem] text-muted">{profile.role}</span>
         </span>
         <span className="label text-accent">{profile.badge}</span>
       </h1>
@@ -68,7 +68,7 @@ export default function Hero() {
         {titleBlock.map((item) => (
           <div key={item.label}>
             <dt className="label">{item.label}</dt>
-            <dd className="mono mt-2.5 text-[0.8125rem] leading-snug text-text">{item.value}</dd>
+            <dd className="mt-2.5 text-[0.8125rem] leading-snug text-text">{item.value}</dd>
           </div>
         ))}
       </dl>
@@ -91,7 +91,7 @@ function HeroLink({
       <a
         href={href}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        className="mono inline-flex items-center gap-2 text-[0.8125rem] text-muted transition-colors hover:text-accent"
+        className="inline-flex items-center gap-2 text-[0.8125rem] text-muted transition-colors hover:text-accent"
       >
         <span className="text-dim">{icon}</span>
         {children}

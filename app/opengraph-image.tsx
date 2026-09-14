@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import { profile } from "@/content";
 import { site } from "@/lib/site";
@@ -6,7 +8,18 @@ export const alt = site.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+/** The card is the first impression for a pasted link, so it ships the real face
+ *  rather than falling back to whatever Satori bundles. */
+async function font(file: string) {
+  return readFile(path.join(process.cwd(), "assets", file));
+}
+
 export default async function OpengraphImage() {
+  const [regular, semibold] = await Promise.all([
+    font("InstrumentSans-Regular.ttf"),
+    font("InstrumentSans-SemiBold.ttf"),
+  ]);
+
   return new ImageResponse(
     (
       <div
@@ -19,7 +32,7 @@ export default async function OpengraphImage() {
           background: "#08090B",
           padding: "72px 76px",
           color: "#E8EAED",
-          fontFamily: "sans-serif",
+          fontFamily: "Instrument Sans",
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -74,6 +87,12 @@ export default async function OpengraphImage() {
         </div>
       </div>
     ),
-    size,
+    {
+      ...size,
+      fonts: [
+        { name: "Instrument Sans", data: regular, weight: 400, style: "normal" },
+        { name: "Instrument Sans", data: semibold, weight: 600, style: "normal" },
+      ],
+    },
   );
 }

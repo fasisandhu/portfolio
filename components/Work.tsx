@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { projects, type Project } from "@/content";
 import DemoLogin from "./DemoLogin";
+import InterviewLoop from "./InterviewLoop";
 import SectionHead from "./SectionHead";
 import { ArrowUpRight, GitHubIcon } from "./icons";
 
@@ -8,7 +9,25 @@ export default function Work() {
   return (
     <section id="work" className="section">
       <div className="shell">
-        <SectionHead label="Work" />
+        <SectionHead
+          label="Selected work"
+          lead="Three systems running in production. All of them are deployed, and two publish
+            the credentials you need to sign in and look around."
+        />
+
+        <div data-reveal className="mb-14 md:mb-20">
+          <h3 className="text-[1.0625rem] font-semibold tracking-tight md:text-lg">
+            Inside the voice interview
+          </h3>
+          <p className="mt-2 max-w-[62ch] text-[0.9375rem] leading-relaxed text-muted">
+            The part of Recruiter.AI that is hardest to show in a screenshot: a candidate
+            speaks, and a tailored follow-up question comes back as speech.
+          </p>
+          <div className="mt-7">
+            <InterviewLoop />
+          </div>
+        </div>
+
         <div className="flex flex-col gap-6 md:gap-8">
           {projects.map((project, i) => (
             <div key={project.slug} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
@@ -29,8 +48,8 @@ function ProjectCard({ project }: { project: Project }) {
           <span className="label">{project.domain}</span>
 
           <h3 className="display-sm mt-4">{project.name}</h3>
-          <p className="mono mt-2 text-[0.8125rem] text-muted">{project.kicker}</p>
-          <p className="mt-4 text-[0.9375rem] leading-relaxed text-muted">{project.summary}</p>
+          <p className="mt-2 text-[0.9375rem] text-muted">{project.kicker}</p>
+          <p className="mt-4 max-w-[62ch] text-[0.9375rem] leading-relaxed text-muted">{project.summary}</p>
 
           <ul className="mt-5 flex flex-wrap gap-1.5">
             {project.tech.map((t) => (

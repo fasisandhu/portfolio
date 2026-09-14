@@ -40,7 +40,7 @@ export default function Contact() {
               </a>
             </div>
 
-            <p className="mono mt-9 text-[0.8125rem] text-dim">{profile.location}</p>
+            <p className="mt-9 text-[0.9375rem] text-dim">{profile.location}</p>
           </div>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function Contact() {
           <span className="label">
             © {year} {profile.name}
           </span>
-          <span className="label">Next.js · Vercel</span>
+          
         </div>
       </footer>
     </>

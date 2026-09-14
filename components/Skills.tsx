@@ -11,17 +11,11 @@ export default function Skills() {
             {skills.map((group) => (
               <div
                 key={group.group}
-                className="grid gap-x-10 gap-y-3 border-t border-line py-5 first:border-t-0 first:pt-0 md:grid-cols-[12rem_minmax(0,1fr)]"
+                className="grid gap-x-10 gap-y-1.5 border-t border-line py-4 first:border-t-0 first:pt-0 md:grid-cols-[11rem_minmax(0,1fr)]"
               >
-                <dt className="label pt-1.5">{group.group}</dt>
-                <dd>
-                  <ul className="flex flex-wrap gap-1.5">
-                    {group.items.map((item) => (
-                      <li key={item} className="tag">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                <dt className="text-[0.9375rem] font-medium tracking-tight">{group.group}</dt>
+                <dd className="text-[0.9375rem] leading-relaxed text-muted">
+                  {group.items.join(", ")}
                 </dd>
               </div>
             ))}

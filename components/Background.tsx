@@ -1,7 +1,7 @@
 import { allCertificationsUrl, certifications, education, resumes } from "@/content";
 import { publicFileSize } from "@/lib/files";
 import SectionHead from "./SectionHead";
-import { ArrowRight, ArrowUpRight, CheckIcon } from "./icons";
+import { ArrowUpRight } from "./icons";
 
 export default function Background() {
   return (
@@ -9,12 +9,9 @@ export default function Background() {
       <div className="shell">
         <SectionHead label="Background" />
 
-        <div data-reveal className="mb-10 md:mb-12">
-          <div className="mb-5 flex items-center gap-5">
-            <h3 className="label text-text">Résumé</h3>
-            <span aria-hidden="true" className="h-px flex-1 bg-line" />
-          </div>
-          <ul>
+        <div data-reveal>
+          <h3 className="text-[0.9375rem] font-medium tracking-tight">Résumé</h3>
+          <ul className="mt-3">
             {resumes.map((resume) => {
               const size = publicFileSize(resume.file);
               return (
@@ -23,13 +20,13 @@ export default function Background() {
                     href={resume.file}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
+                    className="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3.5"
                   >
                     <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className="text-[0.9375rem] font-medium tracking-tight transition-colors group-hover:text-accent">
+                      <span className="text-[0.9375rem] transition-colors group-hover:text-accent">
                         {resume.role}
                       </span>
-                      <span className="mono text-[0.75rem] text-dim">{resume.note}</span>
+                      <span className="text-[0.8125rem] text-dim">{resume.note}</span>
                     </span>
                     <span className="mono flex items-center gap-2.5 text-[0.75rem] text-dim">
                       {size ? `PDF · ${size}` : "PDF"}
@@ -42,68 +39,44 @@ export default function Background() {
           </ul>
         </div>
 
-        <div data-reveal>
-          <div className="card flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 p-5 sm:p-6">
-            <div>
-              <span className="label">Education</span>
-              <h3 className="mt-3 text-[1.0625rem] font-semibold tracking-tight md:text-lg">
-                {education.degree}
-              </h3>
-              <p className="mono mt-1.5 text-[0.8125rem] text-muted">{education.school}</p>
-            </div>
-            <div className="md:text-right">
-              <span className="label">{education.period}</span>
-              <p className="mono mt-3 text-[0.8125rem] text-muted">{education.detail}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 md:mt-12">
-          <div className="mb-5 flex items-center gap-5">
-            <span className="label text-text">Certifications</span>
-            <span aria-hidden="true" className="h-px flex-1 bg-line" />
+        <div data-reveal className="mt-10 grid gap-x-12 gap-y-8 md:mt-12 md:grid-cols-2">
+          <div>
+            <h3 className="text-[0.9375rem] font-medium tracking-tight">Education</h3>
+            <p className="mt-3 text-[0.9375rem]">{education.degree}</p>
+            <p className="mt-1 text-[0.9375rem] text-muted">{education.school}</p>
+            <p className="mt-2 text-[0.8125rem] text-dim">
+              {education.period} · {education.detail}
+            </p>
           </div>
 
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {certifications.map((cert, i) => (
-              <li key={cert.url}>
-                <div data-reveal className="h-full" style={{ transitionDelay: `${i * 50}ms` }}>
+          <div>
+            <h3 className="text-[0.9375rem] font-medium tracking-tight">Certifications</h3>
+            <p className="mt-3 max-w-[60ch] text-[0.9375rem] leading-relaxed text-muted">
+              {certifications.length} Anthropic certificates, each independently verifiable:{" "}
+              {certifications.map((cert, i) => (
+                <span key={cert.url}>
                   <a
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="card group flex h-full flex-col justify-between p-4 transition-colors hover:border-accent-line"
+                    className="text-text underline decoration-line-strong transition-colors hover:text-accent hover:decoration-accent"
                   >
-                    <div>
-                      <span className="label">
-                        {cert.issuer} · {cert.year}
-                      </span>
-                      <h3 className="mt-3 text-[0.9375rem] font-medium leading-snug tracking-tight">
-                        {cert.name}
-                      </h3>
-                    </div>
-                    <div className="mt-6 flex items-center justify-between">
-                      <span className="label flex items-center gap-1.5">
-                        <CheckIcon className="h-3 w-3" />
-                        Verified
-                      </span>
-                      <ArrowUpRight className="h-3.5 w-3.5 text-dim transition-colors group-hover:text-accent" />
-                    </div>
+                    {cert.name}
                   </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <a
-            href={allCertificationsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mono mt-5 inline-flex items-center gap-2 text-[0.8125rem] text-muted transition-colors hover:text-accent"
-          >
-            All certifications
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+                  {i < certifications.length - 1 ? " · " : "."}
+                </span>
+              ))}
+            </p>
+            <a
+              href={allCertificationsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 text-[0.8125rem] text-dim transition-colors hover:text-accent"
+            >
+              All certifications
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

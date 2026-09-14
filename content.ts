@@ -120,6 +120,8 @@ export type Role = {
   place: string;
   current?: boolean;
   points: string[];
+  /** Substrings of `points` that carry the outcome; rendered at full weight. */
+  figures?: string[];
 };
 
 export const experience: Role[] = [
@@ -133,6 +135,7 @@ export const experience: Role[] = [
       "Python backend services and REST APIs for financial valuation products used by 200+ advisory and audit firms",
       "LLM-powered document processing cutting manual valuation analysis time by 70%",
     ],
+    figures: ["200+ advisory and audit firms", "70%"],
   },
   {
     company: "Digitalytics",
@@ -144,6 +147,7 @@ export const experience: Role[] = [
       "ML-based pipeline leak-detection system deployed across two districts in Oman",
       "Custom CRM/business portals for 5+ clients (~100 staff-hours saved weekly)",
     ],
+    figures: ["80% extraction accuracy", "90% less manual review", "~100 staff-hours saved weekly"],
   },
   {
     company: "Programmers Force",
@@ -155,6 +159,7 @@ export const experience: Role[] = [
       "Text-to-SQL chatbot handling 100+ queries/week",
       "OpenAI-powered web-scraping pipeline (site → structured JSON)",
     ],
+    figures: ["100+ queries/week"],
   },
 ];
 

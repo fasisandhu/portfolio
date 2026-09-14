@@ -47,7 +47,7 @@ export default function Rail() {
           <span className="block text-[0.9375rem] font-semibold leading-tight tracking-tight">
             {profile.name}
           </span>
-          <span className="label mt-1.5 block leading-relaxed">{profile.role}</span>
+          <span className="mt-1.5 block text-[0.8125rem] leading-relaxed text-dim">{profile.role}</span>
         </a>
 
         <ul className="-ml-7 flex flex-col gap-px">
@@ -67,8 +67,8 @@ export default function Rail() {
                     }`}
                   />
                   <span
-                    className={`label transition-colors ${
-                      on ? "text-text" : "group-hover:text-muted"
+                    className={`text-[0.8125rem] transition-colors ${
+                      on ? "text-text" : "text-dim group-hover:text-muted"
                     }`}
                   >
                     {item.label}
