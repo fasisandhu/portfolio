@@ -1,9 +1,10 @@
 import { profile, resumes, titleBlock } from "@/content";
+import InterviewLoop from "./InterviewLoop";
 import { ArrowRight, DocumentIcon, GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
 
 export default function Hero() {
   return (
-    <section id="top" className="shell scroll-mt-24 pt-10 pb-14 md:pt-16 md:pb-16">
+    <section id="top" className="shell scroll-mt-24 pt-10 pb-14 md:pt-14 md:pb-16">
       <h1 className="rise masthead" style={{ animationDelay: "40ms" }}>
         <span className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
           <span className="text-[0.9375rem] font-semibold tracking-tight text-text">
@@ -17,7 +18,7 @@ export default function Hero() {
         <span className="label text-accent">{profile.badge}</span>
       </h1>
 
-      <p className="rise display mt-12 max-w-[46rem] md:mt-16" style={{ animationDelay: "110ms" }}>
+      <p className="rise display mt-11 max-w-[56rem] md:mt-14" style={{ animationDelay: "110ms" }}>
         <span className="text-muted">{profile.taglineLead}</span>{" "}
         {profile.taglineClaim}
       </p>
@@ -64,7 +65,11 @@ export default function Hero() {
         </HeroLink>
       </ul>
 
-      <dl className="rise titleblock mt-14 md:mt-16" style={{ animationDelay: "390ms" }}>
+      <div className="rise mt-12 md:mt-14" style={{ animationDelay: "390ms" }}>
+        <InterviewLoop />
+      </div>
+
+      <dl className="rise titleblock mt-12 md:mt-14" style={{ animationDelay: "450ms" }}>
         {titleBlock.map((item) => (
           <div key={item.label}>
             <dt className="label">{item.label}</dt>

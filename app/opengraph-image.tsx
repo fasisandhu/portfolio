@@ -15,9 +15,9 @@ async function font(file: string) {
 }
 
 export default async function OpengraphImage() {
-  const [regular, semibold] = await Promise.all([
-    font("InstrumentSans-Regular.ttf"),
-    font("InstrumentSans-SemiBold.ttf"),
+  const [regular, expanded] = await Promise.all([
+    font("Archivo-Regular.ttf"),
+    font("Archivo-ExpandedBold.ttf"),
   ]);
 
   return new ImageResponse(
@@ -32,7 +32,7 @@ export default async function OpengraphImage() {
           background: "#08090B",
           padding: "72px 76px",
           color: "#E8EAED",
-          fontFamily: "Instrument Sans",
+          fontFamily: "Archivo",
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -41,7 +41,7 @@ export default async function OpengraphImage() {
               fontSize: 22,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: "#2FE0C0",
+              color: "#FFB020",
             }}
           >
             {profile.badge}
@@ -54,11 +54,12 @@ export default async function OpengraphImage() {
               display: "flex",
               flexWrap: "wrap",
               gap: "0 14px",
-              fontSize: 56,
+              fontFamily: "ArchivoExpanded",
+              fontSize: 46,
               fontWeight: 700,
-              letterSpacing: -2.2,
+              letterSpacing: -1.4,
               lineHeight: 1.1,
-              maxWidth: 950,
+              maxWidth: 1020,
             }}
           >
             <span style={{ color: "#8B939E" }}>{profile.taglineLead}</span>
@@ -90,8 +91,8 @@ export default async function OpengraphImage() {
     {
       ...size,
       fonts: [
-        { name: "Instrument Sans", data: regular, weight: 400, style: "normal" },
-        { name: "Instrument Sans", data: semibold, weight: 600, style: "normal" },
+        { name: "Archivo", data: regular, weight: 400, style: "normal" },
+        { name: "ArchivoExpanded", data: expanded, weight: 700, style: "normal" },
       ],
     },
   );

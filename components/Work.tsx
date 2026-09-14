@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { projects, type Project } from "@/content";
 import DemoLogin from "./DemoLogin";
-import InterviewLoop from "./InterviewLoop";
 import SectionHead from "./SectionHead";
 import { ArrowUpRight, GitHubIcon } from "./icons";
 
@@ -14,19 +13,6 @@ export default function Work() {
           lead="Three systems running in production. All of them are deployed, and two publish
             the credentials you need to sign in and look around."
         />
-
-        <div data-reveal className="mb-14 md:mb-20">
-          <h3 className="text-[1.0625rem] font-semibold tracking-tight md:text-lg">
-            Inside the voice interview
-          </h3>
-          <p className="mt-2 max-w-[62ch] text-[0.9375rem] leading-relaxed text-muted">
-            The part of Recruiter.AI that is hardest to show in a screenshot: a candidate
-            speaks, and a tailored follow-up question comes back as speech.
-          </p>
-          <div className="mt-7">
-            <InterviewLoop />
-          </div>
-        </div>
 
         <div className="flex flex-col gap-6 md:gap-8">
           {projects.map((project, i) => (

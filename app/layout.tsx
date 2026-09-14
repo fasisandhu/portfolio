@@ -1,12 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import { profile } from "@/content";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const sans = Instrument_Sans({
+/** Archivo carries a width axis, which is what the display voice is built on:
+ *  the headline runs expanded, the body runs normal. One superfamily. */
+const sans = Archivo({
   variable: "--font-sans-var",
   subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
