@@ -2,7 +2,7 @@ import Background from "@/components/Background";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
-import TopBar from "@/components/TopBar";
+import Rail from "@/components/Rail";
 import RevealRoot from "@/components/RevealRoot";
 import Skills from "@/components/Skills";
 import Work from "@/components/Work";
@@ -16,9 +16,9 @@ export default function Home() {
       >
         Skip to projects
       </a>
-      <TopBar />
+      <Rail />
       <RevealRoot />
-      <main>
+      <main className="lg:pl-(--rail)">
         <Hero />
         <Work />
         <Experience />

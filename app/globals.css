@@ -14,13 +14,10 @@
   --text: #e8eaed;
   --muted: #8b939e;
   --dim: #7a828d;
-  /* Sodium amber. Amber phosphor is the colour of the instruments this work
-     actually runs on, and it is nowhere near the mint every generated dev
-     portfolio reaches for. */
-  --accent: #ffb020;
-  --accent-ink: #1a0f00;
-  --accent-wash: rgba(255, 176, 32, 0.09);
-  --accent-line: rgba(255, 176, 32, 0.34);
+  --accent: #2fe0c0;
+  --accent-ink: #04120f;
+  --accent-wash: rgba(47, 224, 192, 0.09);
+  --accent-line: rgba(47, 224, 192, 0.32);
 
   --rail: 13.5rem;
   color-scheme: dark;
@@ -120,31 +117,26 @@
   /* Section headings are headings: set in the sans, at a size that outranks
      the body copy underneath them. */
   .section-title {
-    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-    font-stretch: 118%;
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    letter-spacing: -0.025em;
+    font-weight: 600;
     color: var(--text);
   }
 
-  /* The display voice: Archivo run wide. Expanded grotesques are rare on
-     engineer portfolios, and the width is doing the work the colour used to. */
   .display {
-    font-size: clamp(2.05rem, 5.2vw, 3.9rem);
-    font-stretch: 125%;
-    line-height: 1.02;
-    letter-spacing: -0.028em;
-    font-weight: 700;
+    font-size: clamp(2.15rem, 5.4vw, 3.75rem);
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+    font-weight: 600;
     text-wrap: balance;
   }
 
   .display-sm {
-    font-size: clamp(1.55rem, 3.4vw, 2.25rem);
-    font-stretch: 125%;
-    line-height: 1.08;
-    letter-spacing: -0.022em;
-    font-weight: 700;
+    font-size: clamp(1.6rem, 3.6vw, 2.35rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-weight: 600;
     text-wrap: balance;
   }
 
@@ -222,7 +214,7 @@
   }
 
   .btn-primary:hover {
-    background: #ffc250;
+    background: #52e9cd;
   }
 
   .btn-ghost {
@@ -273,7 +265,7 @@
 
   .frame:hover {
     border-color: var(--accent-line);
-    box-shadow: 0 0 0 1px rgba(255, 176, 32, 0.14),
+    box-shadow: 0 0 0 1px rgba(47, 224, 192, 0.12),
       0 18px 40px -24px rgba(0, 0, 0, 0.9);
   }
 
@@ -326,14 +318,13 @@
   transform: none;
 }
 
-/* Rises from an already-visible default. Starting at opacity 0 makes the hero
-   ineligible as a Largest Contentful Paint candidate -- Chrome skips elements
-   that are invisible when painted -- which left the page with no LCP at all. */
 @keyframes rise {
   from {
-    transform: translateY(18px);
+    opacity: 0;
+    transform: translateY(16px);
   }
   to {
+    opacity: 1;
     transform: none;
   }
 }
