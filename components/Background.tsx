@@ -1,4 +1,5 @@
-import { allCertificationsUrl, certifications, education } from "@/content";
+import { allCertificationsUrl, certifications, education, resumes } from "@/content";
+import { publicFileSize } from "@/lib/files";
 import SectionHead from "./SectionHead";
 import { ArrowRight, ArrowUpRight, CheckIcon } from "./icons";
 
@@ -7,6 +8,39 @@ export default function Background() {
     <section id="background" className="section">
       <div className="shell">
         <SectionHead label="Background" />
+
+        <div data-reveal className="mb-10 md:mb-12">
+          <div className="mb-5 flex items-center gap-5">
+            <h3 className="label text-text">Résumé</h3>
+            <span aria-hidden="true" className="h-px flex-1 bg-line" />
+          </div>
+          <ul>
+            {resumes.map((resume) => {
+              const size = publicFileSize(resume.file);
+              return (
+                <li key={resume.file} className="border-t border-line first:border-t-0">
+                  <a
+                    href={resume.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
+                  >
+                    <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <span className="text-[0.9375rem] font-medium tracking-tight transition-colors group-hover:text-accent">
+                        {resume.role}
+                      </span>
+                      <span className="mono text-[0.75rem] text-dim">{resume.note}</span>
+                    </span>
+                    <span className="mono flex items-center gap-2.5 text-[0.75rem] text-dim">
+                      {size ? `PDF · ${size}` : "PDF"}
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-colors group-hover:text-accent" />
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         <div data-reveal>
           <div className="card flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 p-5 sm:p-6">

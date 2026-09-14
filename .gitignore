@@ -46,3 +46,9 @@ next-env.d.ts
 .vscode/
 
 .vercel
+
+# impeccable local state (PRODUCT.md and live/config.json stay tracked)
+.impeccable/config.local.json
+.impeccable/live/sessions/
+.impeccable/live/roots.json
+.impeccable/live/inject-journal.json

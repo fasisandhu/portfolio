@@ -1,5 +1,5 @@
-import { profile, titleBlock } from "@/content";
-import { ArrowRight, GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
+import { profile, resumes, titleBlock } from "@/content";
+import { ArrowRight, DocumentIcon, GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
 
 export default function Hero() {
   return (
@@ -37,6 +37,15 @@ export default function Hero() {
         <a href={`mailto:${profile.email}`} className="btn btn-ghost">
           <MailIcon className="h-4 w-4" />
           Email me
+        </a>
+        <a
+          href={resumes[0].file}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-ghost"
+        >
+          <DocumentIcon className="h-4 w-4" />
+          Résumé
         </a>
       </div>
 

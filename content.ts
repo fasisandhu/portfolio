@@ -24,6 +24,25 @@ export const titleBlock = [
   { label: "Demos", value: "3 live, logins included" },
 ];
 
+/**
+ * Two tailored versions of the same history. The first is the default: it is
+ * what the hero button opens and what the list leads with.
+ */
+export type Resume = { role: string; note: string; file: string };
+
+export const resumes: Resume[] = [
+  {
+    role: "AI Engineer",
+    note: "LLM systems, RAG, backend",
+    file: "/resume/muhammad-faseeh-ai-engineer.pdf",
+  },
+  {
+    role: "Software Engineer",
+    note: "Full-stack and backend",
+    file: "/resume/muhammad-faseeh-software-engineer.pdf",
+  },
+];
+
 export type Repo = { label: string; url: string };
 
 export type Project = {
